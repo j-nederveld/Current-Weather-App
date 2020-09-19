@@ -1,0 +1,19 @@
+.mild {
+    background-color: green;
+    color: white;
+}
+
+.moderate {
+    background-color: orange;
+    color: white;
+}
+
+.severe {
+    background-color: red;
+    color: white;
+}
+
+.uv-index {
+    padding: 5px;
+    border-radius: 10px;
+}
