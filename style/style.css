@@ -20,4 +20,24 @@
 
 .zip {
     width: 100%;
+    border: 0px solid;
+}
+
+.zip:focus, .zip:focus{
+    outline: none;
+}
+
+.submit {
+    margin: 5px 0px;
+    border-radius: 10px;
+    background: skyblue;
+    color: white;
+    font-size: 24px;
+    padding: 5px 10px;
+}
+
+#input {
+    background: transparent;
+    color: #000000;
+    border: 1px solid black;
 }
