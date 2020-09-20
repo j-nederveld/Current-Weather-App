@@ -1,5 +1,24 @@
+.days {
+    overflow: auto;
+    white-space: nowrap;
+    display: block;
+}
+
 .hide {
     display: none;
+}
+
+.IB {
+    width: 300px;
+    /* height: 300px; */
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    background: skyblue;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid darkslategray;
+    color: #ffffff;
 }
 
 .mild {

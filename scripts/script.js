@@ -76,6 +76,7 @@ $.ajax({
             $(".low-" + i).text("Low: " + Math.floor((response.daily[i].temp.min - 273.15) * 9/5 + 32));
             $(".icon-" + i).attr("src", "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + ".png");
             $(".icon-" + i).removeClass("hide");
+            $(".days").removeClass("hide");
         }
               
 });
