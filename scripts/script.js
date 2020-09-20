@@ -72,8 +72,8 @@ $.ajax({
 
         //grab the high/low temp for the next 5 days as well as the weather icon associated with each day
         for (i = 1; i < 6; i++) {
-            $(".high-" + i).text("High: " + Math.floor((response.daily[i].temp.max - 273.15) * 9/5 + 32));
-            $(".low-" + i).text("Low: " + Math.floor((response.daily[i].temp.min - 273.15) * 9/5 + 32));
+            $(".high-" + i).text("High: " + Math.floor((response.daily[i].temp.max - 273.15) * 9/5 + 32) + "\xB0");
+            $(".low-" + i).text("Low: " + Math.floor((response.daily[i].temp.min - 273.15) * 9/5 + 32) + "\xB0");
             $(".icon-" + i).attr("src", "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + ".png");
             $(".icon-" + i).removeClass("hide");
             $(".days").removeClass("hide");
