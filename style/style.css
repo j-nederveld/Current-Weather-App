@@ -74,6 +74,10 @@ div.scrollmenu {
     border-bottom: 2px solid #fff;
 }
 
+.marginBottom {
+    margin-bottom: 2rem;
+}
+
 .mild {
     background-color: green;
     color: white;
