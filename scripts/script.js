@@ -26,12 +26,14 @@ $.ajax({
     //grab lat/lon for the next API call
      longitude = (response.coord.lon);
      latitude = (response.coord.lat);
-
+console.log(response);
     //inject the current weather data into the page 
   $(".city").text("City: " + response.name);
   $(".wind").text("Wind: " + response.wind.speed + " mph");
   $(".humidity").text("Humidity: " + response.main.humidity + "%");
   $(".temp").text("Temperature: " + Math.floor((response.main.temp - 273.15) * 9/5 + 32));
+  $("#current-icon").attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
+  $("#current-icon").removeClass("hide");
 
   //grab the current UV data
   $.ajax({
@@ -74,7 +76,7 @@ $.ajax({
         for (i = 1; i < 6; i++) {
             $(".high-" + i).text("High: " + Math.floor((response.daily[i].temp.max - 273.15) * 9/5 + 32) + "\xB0");
             $(".low-" + i).text("Low: " + Math.floor((response.daily[i].temp.min - 273.15) * 9/5 + 32) + "\xB0");
-            $(".icon-" + i).attr("src", "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + ".png");
+            $(".icon-" + i).attr("src", "https://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png");
             $(".icon-" + i).removeClass("hide");
             $(".days").removeClass("hide");
         }

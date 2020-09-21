@@ -1,7 +1,14 @@
+body {
+    background-image: linear-gradient(100deg, grey, silver);
+    color: white;
+}
+
 .days {
     overflow: auto;
     white-space: nowrap;
     display: block;
+    border: 3px solid darkslategrey;
+    border-radius: 10px;
 }
 
 .hide {
@@ -9,15 +16,21 @@
 }
 
 .IB {
-    width: 300px;
+    width: 295px;
     display: inline-block;
-    margin: 10px;
+    margin: 10px 0px 10px 10px;
     text-align: center;
     background-image: linear-gradient(skyblue,rgb(196, 234, 247));
     padding: 30px 10px;
     border-radius: 10px;
     border: 2px solid darkslategray;
     color: #ffffff;
+    font-size: 20px;
+}
+
+.jumbotron {
+    background-image: linear-gradient(skyblue,rgb(196, 234, 247));
+    border-bottom: 2px solid #fff;
 }
 
 .mild {
@@ -28,6 +41,10 @@
 .moderate {
     background-color: orange;
     color: white;
+}
+
+.no-list-style {
+    list-style-type: none;
 }
 
 .severe {
@@ -49,6 +66,10 @@
     outline: none;
 }
 
+.right10 {
+    margin-right: 10px;
+}
+
 .submit {
     margin: 5px 0px;
     border-radius: 10px;
@@ -59,7 +80,7 @@
 }
 
 #input {
-    background: transparent;
+    background: whitesmoke;
     color: #000000;
     border: 1px solid black;
 }

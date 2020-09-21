@@ -33,18 +33,27 @@
     </header>
     <div class="container" id="innerContainer">
         <div class="row">
-             <div class="col-md-2">
+             <div class="col-md-3">
                 <form class="weather">
                     <input id="input" class="zip submit" type="text" placeholder="city or zip"><button type="submit" class="submit">submit</button>
                   </form>
                   <div class="city"></div>
              </div>
-             <div class="col-md-10">
-                <div class="city"></div>
-                <div class="wind"></div>
-                <div class="humidity"></div>
-                <div class="temp"></div>
-                <div><span class="uv-index"></span></div>
+             <div class="col-md-9">
+                 <div class="row">
+                    <div class="col-md-6">
+                    <ul class="no-list-style">
+                        <li class="city h3"></li>
+                        <li class="wind"></li>
+                        <li class="humidity"></li>
+                        <li class="temp"></li>
+                        <li><span class="uv-index"></span></li>
+                    </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="current-icon" src="" alt="current-weather-icon" class="hide">
+                    </div>
+                </div>
                 <div class="row days hide">
                     <div class="day-1 IB hide">
                         <h5 id="day-1"></h5>
@@ -70,7 +79,7 @@
                         <div class="high-4"></div>
                         <div class="low-4"></div>
                     </div>
-                    <div class="day-5 IB hide">
+                    <div class="day-5 IB hide right10">
                         <h5 id="day-5"></h5>
                         <img class="icon-5 hide" src="" alt="weather-icon">
                         <div class="high-5"></div>
