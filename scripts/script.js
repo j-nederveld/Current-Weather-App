@@ -80,6 +80,7 @@ $.ajax({
             $("#current-icon").attr("src", "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png");
             $("#current-icon").removeClass("hide");
             $(".5day").removeClass("hide");
+            $(".current-weather").removeClass("hide");
             }           
 });
 });  

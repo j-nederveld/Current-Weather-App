@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(100deg, grey, silver);
+   background-color: whitesmoke;
     color: white;
 }
 
@@ -23,6 +23,13 @@ div.scrollmenu {
   div.scrollmenu button:hover {
     background-color: #777;
   }
+
+.current-weather {
+    background-image: linear-gradient(0deg, gray, silver);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid darkslategray;
+}
 
 .days {
     overflow: auto;
