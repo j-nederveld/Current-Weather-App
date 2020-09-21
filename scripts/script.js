@@ -1,6 +1,7 @@
   // var dateEl = document.querySelector("#showDate");
   var currentDate = moment().format("dddd, MMMM Do" );
   $("#currentDay").text(currentDate);
+  //put the days in the 5 day forecast boxes
   var forecastDay1 = moment().add(1, 'd').format("dddd, MMMM Do" );
   var forecastDay2 = moment().add(2, 'd').format("dddd, MMMM Do" );
   var forecastDay3 = moment().add(3, 'd').format("dddd, MMMM Do" );
@@ -41,8 +42,6 @@
   }
 
   function storeCity(){
-    storedCities = [...new Set(storedCities)];
-    console.log(storedCities);
     localStorage.setItem("city-name", JSON.stringify(storedCities));
     renderHistory();
   }
@@ -71,6 +70,7 @@ $.ajax({
     method: "GET"
 }).then(function(response) {
 
+    //store city name in array, and then auto delete if value already exists
     storedCities.push(response.name);
     storedCities = [...new Set(storedCities)];
 
@@ -134,7 +134,6 @@ $.ajax({
             }     
             
             storeCity();
-            // renderHistory();
 });
 });  
 });
