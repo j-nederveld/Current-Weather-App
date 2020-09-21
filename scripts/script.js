@@ -147,6 +147,18 @@
 
 init();
 
+
+//run on page load, render the last searched city
+function renderLastSearch() {
+  if (JSON.parse(localStorage.getItem("city-name")) !== null) {
+      storedCities = JSON.parse(localStorage.getItem("city-name"));
+//make sure we get the last item in the array
+      zip = storedCities[(storedCities.length-1)];
+  }
+  weatherSearch();
+}
+
+
 //clear storage/storedCities array and remove their buttons 
 $('body').on('click', '.clear', function(e) {
     e.preventDefault();
