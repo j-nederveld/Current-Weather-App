@@ -143,6 +143,7 @@ init();
 
 $('body').on('click', '.clear', function(e) {
     e.preventDefault();
+    storedCities = [];
     localStorage.clear();
     $( ".historyBtn" ).remove();
 })
