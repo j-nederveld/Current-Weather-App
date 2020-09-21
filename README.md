@@ -13,3 +13,4 @@ Upon opening the page, the last searched city's weather data will be displayed o
 Deployed app: https://j-nederveld.github.io/Current-Weather-App/?
 Repository: https://github.com/j-nederveld/Current-Weather-App
 
+![](weatherapp.gif)
