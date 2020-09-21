@@ -17,23 +17,20 @@
   $('body').on('submit', '.weather', function(e) {
   e.preventDefault();
    var zip = $( "input[type=text]" ).val() + ",us";
-   var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + "&q=" + zip + "&appid=" + apiKey;
+   var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" +  zip + "&q=" + zip + "&appid=" + apiKey;
 
 $.ajax({
-  url: queryURL,
-  method: "GET"
+    url: queryURL,
+    method: "GET"
 }).then(function(response) {
     //grab lat/lon for the next API call
-     longitude = (response.coord.lon);
-     latitude = (response.coord.lat);
-console.log(response);
+    longitude = (response.coord.lon);
+    latitude = (response.coord.lat);
     //inject the current weather data into the page 
-  $(".city").text("City: " + response.name);
-  $(".wind").text("Wind: " + response.wind.speed + " mph");
-  $(".humidity").text("Humidity: " + response.main.humidity + "%");
-  $(".temp").text("Temperature: " + Math.floor((response.main.temp - 273.15) * 9/5 + 32));
-  $("#current-icon").attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
-  $("#current-icon").removeClass("hide");
+    $(".city").text("City: " + response.name);
+    $(".wind").text("Wind: " + response.wind.speed + " mph");
+    $(".humidity").text("Humidity: " + response.main.humidity + "%");
+    $(".temp").text("Temperature: " + Math.floor((response.main.temp - 273.15) * 9/5 + 32) + "\xB0");
 
   //grab the current UV data
   $.ajax({
@@ -62,9 +59,10 @@ console.log(response);
     
     //make the last API call for our 5 day forecast
     $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=current,minutely, hourly" + "&appid=" + apiKey,
+        url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly" + "&appid=" + apiKey,
         method: "GET"
       }).then(function(response) {
+        console.log(response);
         //add next 5 dates to the forecast h3
         $("#day-1").text(forecastDay1);
         $("#day-2").text(forecastDay2);
@@ -79,8 +77,9 @@ console.log(response);
             $(".icon-" + i).attr("src", "https://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png");
             $(".icon-" + i).removeClass("hide");
             $(".days").removeClass("hide");
-        }
-              
+            $("#current-icon").attr("src", "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png");
+            $("#current-icon").removeClass("hide");
+            }           
 });
 });  
 });
