@@ -77,7 +77,7 @@ $.ajax({
             $(".icon-" + i).attr("src", "https://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png");
             $(".icon-" + i).removeClass("hide");
             $(".days").removeClass("hide");
-            $("#current-icon").attr("src", "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png");
+            $("#current-icon").attr("src", "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + ".png");
             $("#current-icon").removeClass("hide");
             $(".current-weather").removeClass("hide");
             }           

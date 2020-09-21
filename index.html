@@ -39,27 +39,20 @@
     </header>
     <div class="container" id="innerContainer">
         <div class="row marginBottom">
-             <div class="col-md-3">
+            <div class="col-md-3">
                 <form class="weather">
                     <input id="input" class="zip submit" type="text" placeholder="city or zip"><button type="submit" class="submit">submit</button>
                   </form>        
-             </div>
-             <div class="col-md-9 current-weather hide">
-                 <div class="row">
-                    <div class="col-md-6">
+            </div>
+            <div class="col-md-9 current-weather hide">                    
                     <ul class="no-list-style">
-                        <li class="city h3"></li>
+                        <li class=""><h3 class="city"></h3><img id="current-icon" src="" alt="current-weather-icon" class="hide"></li>
                         <li class="wind"></li>
                         <li class="humidity"></li>
                         <li class="temp"></li>
                         <li><span class="uv-index"></span></li>
                     </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <img id="current-icon" src="" alt="current-weather-icon" class="hide">
-                    </div>
-                </div>
-             </div>
+            </div>
         </div>
                 <div class="row days hide">
                     <div class="day-1 IB hide">

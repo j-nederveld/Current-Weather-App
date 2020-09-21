@@ -24,6 +24,10 @@ div.scrollmenu {
     background-color: #777;
   }
 
+  ul {
+      padding: 0px;
+  }
+
 .current-weather {
     background-image: linear-gradient(0deg, gray, silver);
     padding: 40px;
