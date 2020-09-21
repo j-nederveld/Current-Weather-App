@@ -1,3 +1,5 @@
+  $(document).ready(function (){
+  
   // var dateEl = document.querySelector("#showDate");
   var currentDate = moment().format("dddd, MMMM Do" );
   $("#currentDay").text(currentDate);
@@ -166,3 +168,4 @@ $('body').on('click', '.clear', function(e) {
     localStorage.clear();
     $( ".historyBtn" ).remove();
 })
+  });
