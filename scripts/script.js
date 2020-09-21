@@ -15,17 +15,25 @@
   let latitude;
   let storedCities = [];
 
+  function noDuplicates(){
+    var buttons = $( "button" ).get();
+    buttons = jQuery.unique( buttons ); 
+  }
+
   function renderHistory() {
-      if (storedCities != '') {
-      for (i = 0; i < storedCities.length; i++) {
-          let cityName = storedCities[i];
-          let historyButton = document.createElement("button");
-          historyButton.textContent = cityName;
-          historyButton.setAttribute("class", "historyBtn");
-          historyButton.setAttribute("data-city", cityName);
-          $(".history").append(historyButton);
+            if (storedCities != '') {
+            storedCities = [...new Set(storedCities)];
+            for (i = 0; i < storedCities.length; i++) {
+            let cityName = storedCities[i];
+            let historyButton = document.createElement("button");
+            historyButton.textContent = cityName;
+            historyButton.setAttribute("class", "historyBtn");
+            historyButton.setAttribute("data-city", cityName);
+            $(".history").append(historyButton);  
       }
+      noDuplicates();
   }}
+
 
   function init() {
     if (JSON.parse(localStorage.getItem("city-name")) !== null) {
@@ -35,7 +43,7 @@
   }
 
   function storeCity(){
-      
+    storedCities = [...new Set(storedCities)];
     localStorage.setItem("city-name", JSON.stringify(storedCities));
   }
 
@@ -51,7 +59,6 @@
     //otherwise it wont work 
     if(e.target.matches("button")) {
         zip = e.target.getAttribute("data-city");
-        console.log(zip);
         weatherSearch();
     }
   })
@@ -65,8 +72,8 @@ $.ajax({
 }).then(function(response) {
 
     storedCities.push(response.name);
-    storeCity();
-    renderHistory();
+    storedCities = [...new Set(storedCities)];
+
     //grab lat/lon for the next API call
     longitude = (response.coord.lon);
     latitude = (response.coord.lat);
@@ -124,7 +131,10 @@ $.ajax({
             $("#current-icon").attr("src", "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + ".png");
             $("#current-icon").removeClass("hide");
             $(".current-weather").removeClass("hide");
-            }           
+            }     
+            
+            storeCity();
+            renderHistory();
 });
 });  
 });
