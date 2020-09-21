@@ -168,4 +168,6 @@ $('body').on('click', '.clear', function(e) {
     localStorage.clear();
     $( ".historyBtn" ).remove();
 })
+
+renderLastSearch();
   });
