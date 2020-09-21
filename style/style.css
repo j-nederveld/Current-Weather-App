@@ -121,7 +121,7 @@ div.scrollmenu {
     margin-right: 10px;
 }
 
-.submit {
+.submit, .clear {
     margin: 5px 0px;
     border-radius: 10px;
     background: skyblue;

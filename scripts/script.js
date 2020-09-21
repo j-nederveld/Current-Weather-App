@@ -140,3 +140,9 @@ $.ajax({
 }
 
 init();
+
+$('body').on('click', '.clear', function(e) {
+    e.preventDefault();
+    localStorage.clear();
+    $( ".historyBtn" ).remove();
+})
