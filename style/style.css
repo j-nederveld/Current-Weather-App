@@ -50,7 +50,7 @@ div.scrollmenu {
 }
 
 .jumbotron {
-    background-image: linear-gradient(skyblue,rgb(196, 234, 247));
+    background-image: linear-gradient(90deg, skyblue,rgb(196, 234, 247));
     border-bottom: 2px solid #fff;
 }
 
