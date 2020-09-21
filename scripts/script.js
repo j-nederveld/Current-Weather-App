@@ -6,23 +6,67 @@
   var forecastDay3 = moment().add(3, 'd').format("dddd, MMMM Do" );
   var forecastDay4 = moment().add(4, 'd').format("dddd, MMMM Do" );
   var forecastDay5 = moment().add(5, 'd').format("dddd, MMMM Do" );
-
+  var input = document.querySelector(".zip");
 
   //get weather data using openweathermap API 
   var apiKey = "f0ffaacec07f68a395b5f151f257622e"
   var zip = '';
   let longitude;
   let latitude;
+  let storedCities = [];
+
+  function renderHistory() {
+      if (storedCities != '') {
+      for (i = 0; i < storedCities.length; i++) {
+          let cityName = storedCities[i];
+          let historyButton = document.createElement("button");
+          historyButton.textContent = cityName;
+          historyButton.setAttribute("class", "historyBtn");
+          historyButton.setAttribute("data-city", cityName);
+          $(".history").append(historyButton);
+      }
+  }}
+
+  function init() {
+    if (JSON.parse(localStorage.getItem("city-name")) !== null) {
+        storedCities = JSON.parse(localStorage.getItem("city-name"));
+    }
+    renderHistory();
+  }
+
+  function storeCity(){
+      
+    localStorage.setItem("city-name", JSON.stringify(storedCities));
+  }
 
   $('body').on('submit', '.weather', function(e) {
-  e.preventDefault();
-   var zip = $( "input[type=text]" ).val() + ",us";
-   var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" +  zip + "&q=" + zip + "&appid=" + apiKey;
+      e.preventDefault();
+      zip = $( "input[type=text]" ).val() + ",us";
+      weatherSearch();
+  });
 
+  $('body').on('click', '.historyBtn', function(e) {
+    e.preventDefault();
+    //if event target matches a type of button, then do the thing
+    //otherwise it wont work 
+    if(e.target.matches("button")) {
+        zip = e.target.getAttribute("data-city");
+        console.log(zip);
+        weatherSearch();
+    }
+  })
+
+  function weatherSearch() {  
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" +  zip + "&q=" + zip + "&appid=" + apiKey;
+    input.value = '';
 $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function(response) {
+
+    storedCities.push(response.name);
+    storeCity();
+    renderHistory();
     //grab lat/lon for the next API call
     longitude = (response.coord.lon);
     latitude = (response.coord.lat);
@@ -62,7 +106,7 @@ $.ajax({
         url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly" + "&appid=" + apiKey,
         method: "GET"
       }).then(function(response) {
-        console.log(response);
+        
         //add next 5 dates to the forecast h3
         $("#day-1").text(forecastDay1);
         $("#day-2").text(forecastDay2);
@@ -84,4 +128,6 @@ $.ajax({
 });
 });  
 });
-})
+}
+
+init();
