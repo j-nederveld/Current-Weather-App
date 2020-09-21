@@ -15,14 +15,13 @@
   let latitude;
   let storedCities = [];
 
-  function noDuplicates(){
-    var buttons = $( "button" ).get();
-    buttons = jQuery.unique( buttons ); 
-  }
-
   function renderHistory() {
+            //destroy and then recreate the btn elements, so fast you can't even see it
+            $( ".historyBtn" ).remove();
             if (storedCities != '') {
+                //delete duplicates if they exist
             storedCities = [...new Set(storedCities)];
+                //create buttons
             for (i = 0; i < storedCities.length; i++) {
             let cityName = storedCities[i];
             let historyButton = document.createElement("button");
@@ -31,7 +30,6 @@
             historyButton.setAttribute("data-city", cityName);
             $(".history").append(historyButton);  
       }
-      noDuplicates();
   }}
 
 
@@ -44,7 +42,9 @@
 
   function storeCity(){
     storedCities = [...new Set(storedCities)];
+    console.log(storedCities);
     localStorage.setItem("city-name", JSON.stringify(storedCities));
+    renderHistory();
   }
 
   $('body').on('submit', '.weather', function(e) {
@@ -134,7 +134,7 @@ $.ajax({
             }     
             
             storeCity();
-            renderHistory();
+            // renderHistory();
 });
 });  
 });
