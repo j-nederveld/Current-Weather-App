@@ -32,6 +32,19 @@ div.scrollmenu {
     border-radius: 10px;
 }
 
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+/* found this trick on W3 schools */
+.days::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .days {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+  }
+
 .hide {
     display: none;
 }
