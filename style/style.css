@@ -42,6 +42,7 @@ div.scrollmenu {
     border: 3px solid darkslategrey;
     border-radius: 10px;
     padding: 20px 10px;
+    background-image: linear-gradient(0deg, gray, silver);
 }
 
 
@@ -141,4 +142,18 @@ div.scrollmenu {
 
 #innerContainer {
     margin-bottom: 2rem;
+}
+
+@media (max-width: 575px) {
+    .days {
+        overflow: auto;
+        white-space: nowrap;
+        border-top: 3px solid darkslategrey;
+        border-radius: 0px;
+        padding: 20px 10px;
+        border-bottom: 3px solid darkslategray;
+        
+        border-left: none;
+        border-right: none;
+}
 }
