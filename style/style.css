@@ -100,6 +100,10 @@ div.scrollmenu {
     padding: 5px 10px;
 }
 
+.text-center {
+    text-align: center;
+}
+
 #input {
     background: whitesmoke;
     color: #000000;
